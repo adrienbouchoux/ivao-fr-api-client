@@ -1,0 +1,13 @@
+{
+    "name": "ivao-fr/api",
+    "description": "IVAO France API client",
+    "type": "library",
+    "authors": [
+        {
+            "name": "IVAO France",
+            "email": "fr-wm@ivao.aero"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
