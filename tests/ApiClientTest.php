@@ -6,73 +6,74 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
 {
 
     private $url = 'http://atcsdev.ivao.fr/api';
+    private $apiException = '\IvaoFrance\ApiClient\ApiException';
 
     public function testInvalidUrl()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('test', 'secret', 'http://invalid.tld');
         $client->request('test');
     }
 
     public function testInvalidAccessId()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('wrong', 'secret', $this->url);
         $client->request('test');
     }
 
     public function testInvalidSecret()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testread', 'wrong', $this->url);
         $client->request('test');
     }
 
     public function testInvalidEntryPoint()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testread', 'secret', $this->url);
         $client->request('testwrong');
     }
 
     public function testForbiddenAccess()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testforbidden', 'secret', $this->url);
         $client->request('test');
     }
 
     public function testForbiddenGet()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testwrite', 'secret', $this->url);
         $client->request('test');
     }
 
     public function testForbiddenPost()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testread', 'secret', $this->url);
         $client->request('test', 'post');
     }
 
     public function testForbiddenPut()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testread', 'secret', $this->url);
         $client->request('test', 'put');
     }
 
     public function testForbiddenPatch()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testread', 'secret', $this->url);
         $client->request('test', 'patch');
     }
 
     public function testForbiddenDelete()
     {
-        $this->expectException(ApiException::class);
+        $this->setExpectedException($this->apiException);
         $client = new ApiClient('testread', 'secret', $this->url);
         $client->request('test', 'delete');
     }
