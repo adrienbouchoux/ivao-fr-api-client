@@ -2,10 +2,7 @@
 
 namespace IvaoFrance\ApiClient;
 
-use PHPUnit\Framework\TestCase;
-
-
-class ApiClientTest extends TestCase
+class ApiClientTest extends \PHPUnit_Framework_TestCase
 {
 
     private $url = 'http://atcsdev.ivao.fr/api';
