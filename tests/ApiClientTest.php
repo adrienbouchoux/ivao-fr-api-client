@@ -5,7 +5,7 @@ namespace IvaoFrance\ApiClient;
 class ApiClientTest extends \PHPUnit_Framework_TestCase
 {
 
-    private $url = 'http://atcsdev.ivao.fr/api';
+    private $url = 'http://atcs.ivao.fr/api';
     private $apiException = '\IvaoFrance\ApiClient\ApiException';
 
     public function testInvalidUrl()
